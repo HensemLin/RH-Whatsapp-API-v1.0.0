@@ -1,23 +1,9 @@
 
-# Table of Contents
-- [[#GETTING STARTED]]
-	- [[#Introduction]]
-	- [[#Authentication]]
-	- [[#Making Requests]]
-- [[#ENDPOINTS]]
-	- [[#Send WhatsApp Message]]
-		- [[#Text Message]]
-		- [[#Media Message]]
-	- [[#Send WhatsApp Template]]
-		- [[#Template Message]]
-	- [[#Get Media ID]]
-		- [[#Upload Media]]
-- [[#SUPPORTED MEDIA TYPES]]
-
 # GETTING STARTED
+
 ## Introduction
 
-Welcome to Reply Hero API documentation. You can interact with the API through HTTP requests from any language. 
+Welcome to Reply Hero API documentation. You can interact with the API through HTTP requests from any language.
 
 <hr>
 
@@ -62,11 +48,11 @@ curl --location 'https://whatsapp.replyherotech.com/whatsapp/messages/send' \
 }
 ```
 
-Customer IDs is the receiver IDs  \****(needs to request from RH)***
-User IDs is the admin of the organization \****(needs to request from RH)***
-Organization IDs \****(needs to request from RH)***
+Customer IDs is the receiver IDs \***_(needs to request from RH)_**
+User IDs is the admin of the organization \***_(needs to request from RH)_**
+Organization IDs \***_(needs to request from RH)_**
 
-This request queries the `send WhatsApp message` endpoint to send a message with a text of *"testing"*. You should get a response back the resembles the following:
+This request queries the `send WhatsApp message` endpoint to send a message with a text of _"testing"_. You should get a response back the resembles the following:
 
 ```
 {
@@ -94,26 +80,28 @@ This request queries the `send WhatsApp message` endpoint to send a message with
 }
 ```
 
-\****note*** that the client will only receive the message if they initiated the conversation, and the conversation window remain for ***24 hours*** only
+\***_note_** that the client will only receive the message if they initiated the conversation, and the conversation window remain for **_24 hours_** only
 
-Now that you've send your first message in WhatsApp, let's break down the **response object**. We can see that `messageType` is `human` which means the WhatsApp message is sent through human. There are few `messageType` such as `human`, `user`, `assistant`, and `template`. 
+Now that you've send your first message in WhatsApp, let's break down the **response object**. We can see that `messageType` is `human` which means the WhatsApp message is sent through human. There are few `messageType` such as `human`, `user`, `assistant`, and `template`.
 
 `human`, `template`, and `assistant` here are all classified as **sender**; while `user` here is the receiver.
 
 Below show case some use cases:
-1. **Customer Service A *(human)*** reply WhatsAPP message to **Customer B**
-	- `human`: **Customer Service A** (the sender)
-	- `user`: **Customer B** (the receiver)
-2. **Customer Service A *(bot)*** reply WhatsAPP message to **Customer B**
-	- `assitant`:  **Customer Service A** (the sender)
-	- `user`: **Customer B** (the receiver)
-3. **Customer Service A *(template)*** send WhatsAPP template message to **Customer B**
-	- `template`: **Customer Service A** (the sender)
-	-  `user`: **Customer B** (the receiver)
+
+1. **Customer Service A _(human)_** reply WhatsAPP message to **Customer B**
+   - `human`: **Customer Service A** (the sender)
+   - `user`: **Customer B** (the receiver)
+2. **Customer Service A _(bot)_** reply WhatsAPP message to **Customer B**
+   - `assitant`: **Customer Service A** (the sender)
+   - `user`: **Customer B** (the receiver)
+3. **Customer Service A _(template)_** send WhatsAPP template message to **Customer B**
+   - `template`: **Customer Service A** (the sender)
+   - `user`: **Customer B** (the receiver)
 
 <hr>
 
 # ENDPOINTS
+
 ## Send WhatsApp Message
 
 ```
@@ -129,53 +117,57 @@ Sends a message to a specified recipient via WhatsApp.
 Programmatically send a text messages via Whatsapp.
 
 #### Request Body
-<hr>
-
-**message** <span style="font-size: 10px">object </span><span style="color: red; font-weight: 300; font-size: 14px">Required</span> 
-<span style="font-size: 14px">An object of messages comprising the type and body of the message.</span>
->[!example]- <span style="font-size: 14px"> Text Message </span>
-><span style="font-size: 14px">**Text message**</span> <span style="font-size: 12px">object </span>
-><span style="font-size: 12px">properties</span>
-><hr>
->
-><span style="font-size: 14px">**type**</span> <span style="font-size: 10px"> string  </span><span style="color: red; font-weight: 300; font-size: 14px">Required</span> 
-><span style="font-size: 14px">The type of the message, in this case `text`</span>
->
-><hr>
->
-><span style="font-size: 14px">**text**</span> <span style="font-size: 10px">object </span><span style="color: red; font-weight: 300; font-size: 14px">Required</span> 
-><span style="font-size: 14px">The type of the message, in this case `text`</span>
->- <span style="font-size: 14px"> **body**</span> <span style="font-size: 10px">string </span><span style="color: red; font-weight: 300; font-size: 14px">Required</span> 
-><span style="font-size: 14px">The body message to send</span>
->
-><br>
->
-
-**sessionId** <span style="font-size: 10px"> string  </span><span style="color: red; font-weight: 300; font-size: 14px">Required</span> 
-<span style="font-size: 14px">The session IDs for this communication session</span>
 
 <hr>
 
-**customerId** <span style="font-size: 10px"> string  </span><span style="color: red; font-weight: 300; font-size: 14px">Required</span> 
-<span style="font-size: 14px">The customer IDs for the receiver </span>
+**message** `<span style="font-size: 10px">`object `<span style="color: red; font-weight: 300; font-size: 14px">`Required
+`<span style="font-size: 14px">`An object of messages comprising the type and body of the message.
 
-<span style="color: red; font-weight: 300; font-size: 12px">*Required from RH</span> 
+> [!example]- `<span style="font-size: 14px">` Text Message
+> `<span style="font-size: 14px">`**Text message** `<span style="font-size: 12px">`object
+> `<span style="font-size: 12px">`properties
+>
+> <hr>
+>
+> `<span style="font-size: 14px">`**type** `<span style="font-size: 10px">` string `<span style="color: red; font-weight: 300; font-size: 14px">`Required
+> `<span style="font-size: 14px">`The type of the message, in this case `text`
+>
+> <hr>
+>
+> `<span style="font-size: 14px">`**text** `<span style="font-size: 10px">`object `<span style="color: red; font-weight: 300; font-size: 14px">`Required
+> `<span style="font-size: 14px">`The type of the message, in this case `text`
+>
+> - `<span style="font-size: 14px">` **body** `<span style="font-size: 10px">`string `<span style="color: red; font-weight: 300; font-size: 14px">`Required
+>   `<span style="font-size: 14px">`The body message to send
+>
+> <br>
+
+**sessionId** `<span style="font-size: 10px">` string `<span style="color: red; font-weight: 300; font-size: 14px">`Required
+`<span style="font-size: 14px">`The session IDs for this communication session
 
 <hr>
 
-**userId** <span style="font-size: 10px"> string  </span><span style="color: red; font-weight: 300; font-size: 14px">Required</span> 
-<span style="font-size: 14px">The admin of the organization</span>
+**customerId** `<span style="font-size: 10px">` string `<span style="color: red; font-weight: 300; font-size: 14px">`Required
+`<span style="font-size: 14px">`The customer IDs for the receiver
 
-<span style="color: red; font-weight: 300; font-size: 12px">*Required from RH</span> 
+`<span style="color: red; font-weight: 300; font-size: 12px">`\*Required from RH
 
 <hr>
 
-**orgId** <span style="font-size: 10px"> string  </span><span style="color: red; font-weight: 300; font-size: 14px">Required</span> 
-<span style="font-size: 14px">The organization IDs for the sender</span>
+**userId** `<span style="font-size: 10px">` string `<span style="color: red; font-weight: 300; font-size: 14px">`Required
+`<span style="font-size: 14px">`The admin of the organization
 
-<span style="color: red; font-weight: 300; font-size: 12px">*Required from RH</span>
+`<span style="color: red; font-weight: 300; font-size: 12px">`\*Required from RH
+
+<hr>
+
+**orgId** `<span style="font-size: 10px">` string `<span style="color: red; font-weight: 300; font-size: 14px">`Required
+`<span style="font-size: 14px">`The organization IDs for the sender
+
+`<span style="color: red; font-weight: 300; font-size: 12px">`\*Required from RH
 
 #### Example Requests
+
 <hr>
 
 Example curl commnd:
@@ -230,9 +222,11 @@ print(response.text)
 ```
 
 #### Response Example
+
 <hr>
 
 Example success response
+
 ```
 {
    "customerId": "CUSTOMER_ID",
@@ -266,132 +260,131 @@ Example success response
 Programmatically send a media messages via WhatsApp.
 
 #### Request Body
-<hr>
-
-**message** <span style="font-size: 10px">object </span><span style="color: red; font-weight: 300; font-size: 14px">Required</span> 
-<span style="font-size: 14px">An object of messages comprising the type and body of the message.</span>
-
-> [!example]- <span style="font-size: 14px"> Media Message </span>
-><span style="font-size: 14px">**Media message**</span> <span style="font-size: 12px">object </span>
-><span style="font-size: 12px">properties</span>
-><hr>
->
-><span style="font-size: 14px">**type**</span> <span style="font-size: 10px"> string  </span><span style="color: red; font-weight: 300; font-size: 14px">Required</span> 
-><span style="font-size: 14px">The type of the message, in this case `image`.</span>
-></span>
-><span style="color: green; font-size: 12px; font-weight: 300">Supported media type include:</span>
-><span style="font-size: 12px; font-weight: 300">`image`, `document`, and  `video`.</span>
->
-><hr>
->
-><span style="font-size: 14px">**Media**</span> <span style="font-size: 10px">object </span><span style="color: red; font-weight: 300; font-size: 14px">Required</span> 
-><span style="font-size: 14px">The type of the message, in this case `image`</span>
-></span>
-><span style="color: green; font-size: 12px; font-weight: 300">Supported media type include:</span>
-><span style="font-size: 12px; font-weight: 300">`image`, `document`, and  `video`.</span>
->
-><br>
-
-
->[!example]- <span style="font-size: 14px"> Media Object </span>
-><span style="font-size: 14px">**Media**</span> <span style="font-size: 12px">object </span>
-><span style="font-size: 12px">properties</span>
->
-><hr>
->
-><span style="font-size: 14px"> **file**</span> <span style="font-size: 10px">object </span><span style="color: red; font-weight: 300; font-size: 14px">Optional</span> 
-><span style="font-size: 14px">The image file to be sent.</span>
-></span>
-><span style="color: red; font-size: 12px; font-weight: 300">Required when `type` is `document`, `image`, or `video` and you are not using `link`.</span>
->
-><hr>
->
-><span style="font-size: 14px"> **link**</span> <span style="font-size: 10px">string </span><span style="color: red; font-weight: 300; font-size: 14px">Optional</span> 
-><span style="font-size: 14px">The protocol and URL of the media to be sent. Use **only** with HTTP/HTTPS URLs.</span>
-></span>
-><span style="color: red; font-size: 12px; font-weight: 300">Required when `type` is `document`, `image`, or `video` and you are not using `file`.</span>
->
-><hr>
->
-><span style="font-size: 14px"> **caption**</span> <span style="font-size: 10px">string </span><span style="color: red; font-weight: 300; font-size: 14px">Optional</span> 
-><span style="font-size: 14px">The media asset caption</span>
->
-><hr>
->
-><span style="font-size: 14px"> **filename**</span> <span style="font-size: 10px">string </span><span style="color: red; font-weight: 300; font-size: 14px">Optional</span> 
-><span style="font-size: 14px">Describes the filename for the specific document. Use **only** with `document` media.</span>
->
-><hr>
->
-><span style="font-size: 14px"> **provider**</span> <span style="font-size: 10px">string </span><span style="color: red; font-weight: 300; font-size: 14px">Optional</span> 
-><span style="font-size: 14px">This path is optionally used with a `link` when the HTTP/HTTPS link is not directly accessible and requires additional configurations like a bearer token.</span>
->
-><br>
->
-><br>
-
-
->[!example]- <span style="font-size: 14px"> Media File </span>
-><span style="font-size: 14px">**File**</span> <span style="font-size: 12px">object </span>
-><span style="font-size: 12px">properties</span>
->
-><hr>
->
-> <span style="font-size: 14px"> **name**</span> <span style="font-size: 10px">string </span><span style="color: red; font-weight: 300; font-size: 14px">Required</span> 
-><span style="font-size: 14px">The name of the image file to be sent</span>
->
-><hr>
->
-> <span style="font-size: 14px"> **type**</span> <span style="font-size: 10px">string </span><span style="color: red; font-weight: 300; font-size: 14px">Required</span> 
-><span style="font-size: 14px">Type of media file being uploaded. See [[#SUPPORTED MEDIA TYPES]] for more information.</span>
->
-><hr>
->
-><span style="font-size: 14px"> **displayType**</span> <span style="font-size: 10px">string </span><span style="color: red; font-weight: 300; font-size: 14px">Required</span> 
-><span style="font-size: 14px">The type of the media to be displayed</span>
-></span>
-><span style="color: green; font-size: 12px; font-weight: 300">Supported `displayType` include:</span>
-><span style="font-size: 12px; font-weight: 300">`IMAGE`, `DOCUMENT`, and  `VIDEO`.</span>
->
-><hr>
->
- ><span style="font-size: 14px"> **extension**</span> <span style="font-size: 10px">string </span><span style="color: red; font-weight: 300; font-size: 14px">Required</span> 
-><span style="font-size: 14px">The extension of the image file to be sent</span>
->
-><hr>
->
-><span style="font-size: 14px"> **data**</span> <span style="font-size: 10px">string </span><span style="color: red; font-weight: 300; font-size: 14px">Required</span> 
-><span style="font-size: 14px">The **bytes** of the image file to be sent in string</span>
->
->
 
 <hr>
 
-**sessionId** <span style="font-size: 10px"> string  </span><span style="color: red; font-weight: 300; font-size: 14px">Required</span> 
-<span style="font-size: 14px">The session IDs for this communication session</span>
+**message** `<span style="font-size: 10px">`object `<span style="color: red; font-weight: 300; font-size: 14px">`Required
+`<span style="font-size: 14px">`An object of messages comprising the type and body of the message.
+
+> [!example]- `<span style="font-size: 14px">` Media Message
+> `<span style="font-size: 14px">`**Media message** `<span style="font-size: 12px">`object
+> `<span style="font-size: 12px">`properties
+>
+> <hr>
+>
+> `<span style="font-size: 14px">`**type** `<span style="font-size: 10px">` string `<span style="color: red; font-weight: 300; font-size: 14px">`Required
+> `<span style="font-size: 14px">`The type of the message, in this case `image`.
+>
+> `<span style="color: green; font-size: 12px; font-weight: 300">`Supported media type include:
+> `<span style="font-size: 12px; font-weight: 300">image`, `document`, and `video`.
+>
+> <hr>
+>
+> `<span style="font-size: 14px">`**Media** `<span style="font-size: 10px">`object `<span style="color: red; font-weight: 300; font-size: 14px">`Required
+> `<span style="font-size: 14px">`The type of the message, in this case `image`
+>
+> `<span style="color: green; font-size: 12px; font-weight: 300">`Supported media type include:
+> `<span style="font-size: 12px; font-weight: 300">image`, `document`, and `video`.
+>
+> <br>
+
+> [!example]- `<span style="font-size: 14px">` Media Object
+> `<span style="font-size: 14px">`**Media** `<span style="font-size: 12px">`object
+> `<span style="font-size: 12px">`properties
+>
+> <hr>
+>
+> `<span style="font-size: 14px">` **file** `<span style="font-size: 10px">`object `<span style="color: red; font-weight: 300; font-size: 14px">`Optional 
+> `<span style="font-size: 14px">`The image file to be sent.
+>
+> `<span style="color: red; font-size: 12px; font-weight: 300">`Required when `type` is `document`, `image`, or `video` and you are not using `link`.
+>
+> <hr>
+>
+> `<span style="font-size: 14px">` **link** `<span style="font-size: 10px">`string `<span style="color: red; font-weight: 300; font-size: 14px">`Optional 
+> `<span style="font-size: 14px">`The protocol and URL of the media to be sent. Use **only** with HTTP/HTTPS URLs.
+>
+> `<span style="color: red; font-size: 12px; font-weight: 300">`Required when `type` is `document`, `image`, or `video` and you are not using `file`.
+>
+> <hr>
+>
+> `<span style="font-size: 14px">` **caption** `<span style="font-size: 10px">`string `<span style="color: red; font-weight: 300; font-size: 14px">`Optional 
+> `<span style="font-size: 14px">`The media asset caption
+>
+> <hr>
+>
+> `<span style="font-size: 14px">` **filename** `<span style="font-size: 10px">`string `<span style="color: red; font-weight: 300; font-size: 14px">`Optional 
+> `<span style="font-size: 14px">`Describes the filename for the specific document. Use **only** with `document` media.
+>
+> <hr>
+>
+> `<span style="font-size: 14px">` **provider** `<span style="font-size: 10px">`string `<span style="color: red; font-weight: 300; font-size: 14px">`Optional 
+> `<span style="font-size: 14px">`This path is optionally used with a `link` when the HTTP/HTTPS link is not directly accessible and requires additional configurations like a bearer token.
+>
+> <br>
+>
+> <br>
+
+> [!example]- `<span style="font-size: 14px">` Media File
+> `<span style="font-size: 14px">`**File** `<span style="font-size: 12px">`object
+> `<span style="font-size: 12px">`properties
+>
+> <hr>
+>
+> `<span style="font-size: 14px">` **name** `<span style="font-size: 10px">`string `<span style="color: red; font-weight: 300; font-size: 14px">`Required
+> `<span style="font-size: 14px">`The name of the image file to be sent
+>
+> <hr>
+>
+> `<span style="font-size: 14px">` **type** `<span style="font-size: 10px">`string `<span style="color: red; font-weight: 300; font-size: 14px">`Required
+> `<span style="font-size: 14px">`Type of media file being uploaded. See [[#SUPPORTED MEDIA TYPES]] for more information.
+>
+> <hr>
+>
+> `<span style="font-size: 14px">` **displayType** `<span style="font-size: 10px">`string `<span style="color: red; font-weight: 300; font-size: 14px">`Required
+> `<span style="font-size: 14px">`The type of the media to be displayed
+>
+> `<span style="color: green; font-size: 12px; font-weight: 300">`Supported `displayType` include:
+> `<span style="font-size: 12px; font-weight: 300">IMAGE`, `DOCUMENT`, and `VIDEO`.
+>
+> <hr>
+>
+> `<span style="font-size: 14px">` **extension** `<span style="font-size: 10px">`string `<span style="color: red; font-weight: 300; font-size: 14px">`Required
+> `<span style="font-size: 14px">`The extension of the image file to be sent
+>
+> <hr>
+>
+> `<span style="font-size: 14px">` **data** `<span style="font-size: 10px">`string `<span style="color: red; font-weight: 300; font-size: 14px">`Required
+> `<span style="font-size: 14px">`The **bytes** of the image file to be sent in string
 
 <hr>
 
-**customerId** <span style="font-size: 10px"> string  </span><span style="color: red; font-weight: 300; font-size: 14px">Required</span> 
-<span style="font-size: 14px">The customer IDs for the receiver </span>
-
-<span style="color: red; font-weight: 300; font-size: 12px">*Required from RH</span> 
+**sessionId** `<span style="font-size: 10px">` string `<span style="color: red; font-weight: 300; font-size: 14px">`Required
+`<span style="font-size: 14px">`The session IDs for this communication session
 
 <hr>
 
-**userId** <span style="font-size: 10px"> string  </span><span style="color: red; font-weight: 300; font-size: 14px">Required</span> 
-<span style="font-size: 14px">The admin of the organization</span>
+**customerId** `<span style="font-size: 10px">` string `<span style="color: red; font-weight: 300; font-size: 14px">`Required
+`<span style="font-size: 14px">`The customer IDs for the receiver
 
-<span style="color: red; font-weight: 300; font-size: 12px">*Required from RH</span> 
+`<span style="color: red; font-weight: 300; font-size: 12px">`\*Required from RH
 
 <hr>
 
-**orgId** <span style="font-size: 10px"> string  </span><span style="color: red; font-weight: 300; font-size: 14px">Required</span> 
-<span style="font-size: 14px">The organization IDs for the sender</span>
+**userId** `<span style="font-size: 10px">` string `<span style="color: red; font-weight: 300; font-size: 14px">`Required
+`<span style="font-size: 14px">`The admin of the organization
 
-<span style="color: red; font-weight: 300; font-size: 12px">*Required from RH</span> 
+`<span style="color: red; font-weight: 300; font-size: 12px">`\*Required from RH
+
+<hr>
+
+**orgId** `<span style="font-size: 10px">` string `<span style="color: red; font-weight: 300; font-size: 14px">`Required
+`<span style="font-size: 14px">`The organization IDs for the sender
+
+`<span style="color: red; font-weight: 300; font-size: 12px">`\*Required from RH
 
 #### Example Requests
+
 <hr>
 
 Example curl command:
@@ -422,7 +415,7 @@ curl --location 'https://whatsapp.replyherotech.com/whatsapp/messages/send' \
 '
 ```
 
-Example Python - request command: 
+Example Python - request command:
 
 ```python
 import requests
@@ -461,9 +454,11 @@ print(response.text)
 ```
 
 #### Response Example
+
 <hr>
 
 Example success response
+
 ```
 {
    "customerId": "CUSTOMER_ID",
@@ -492,7 +487,7 @@ Example success response
 
 <hr>
 
-## Send WhatsApp Template 
+## Send WhatsApp Template
 
 ```
 POST https://whatsapp.replyherotech.com/whatsapp/template/send
@@ -504,133 +499,135 @@ Sends a template message to a all the recipient that are grouped under the same 
 
 ### Template Message
 
-Programmatically send a template message via WhatsApp. 
+Programmatically send a template message via WhatsApp.
 
 #### Request Body
+
 <hr>
 
-**templateName** <span style="font-size: 10px">string </span><span style="color: red; font-weight: 300; font-size: 14px">Required</span>  
+**templateName** `<span style="font-size: 10px">`string `<span style="color: red; font-weight: 300; font-size: 14px">`Required
 An object of messages comprising the type and body of the message.
 
 ---
 
-**sessionId** <span style="font-size: 10px">string </span><span style="color: red; font-weight: 300; font-size: 14px">Required</span> 
+**sessionId** `<span style="font-size: 10px">`string `<span style="color: red; font-weight: 300; font-size: 14px">`Required
 The session IDs for this communication session
 
 ---
 
-**userId** <span style="font-size: 10px">string </span><span style="color: red; font-weight: 300; font-size: 14px">Required</span> 
-The admin of the organization  
-  
-*<span style="color: red; font-weight: 300; font-size: 12px">*Required from RH</span> 
+**userId** `<span style="font-size: 10px">`string `<span style="color: red; font-weight: 300; font-size: 14px">`Required
+The admin of the organization
+
+*`<span style="color: red; font-weight: 300; font-size: 12px">`*Required from RH
 
 ---
 
-**orgId** <span style="font-size: 10px">string </span><span style="color: red; font-weight: 300; font-size: 14px">Required</span> 
-The organization IDs for the sender  
-  
-<span style="color: red; font-weight: 300; font-size: 12px">*Required from RH</span> 
+**orgId** `<span style="font-size: 10px">`string `<span style="color: red; font-weight: 300; font-size: 14px">`Required
+The organization IDs for the sender
+
+`<span style="color: red; font-weight: 300; font-size: 12px">`\*Required from RH
 
 ---
 
-**components** <span style="font-size: 10px">string </span><span style="color: red; font-weight: 300; font-size: 14px">Required</span> 
+**components** `<span style="font-size: 10px">`string `<span style="color: red; font-weight: 300; font-size: 14px">`Required
 A list of components objects comprising the parameters of the message.
 
->[!example]- <span style="font-size: 14px"> Components Object </span>
-><span style="font-size: 14px">**Components Object**</span> <span style="font-size: 12px">object </span>
-><span style="font-size: 12px">properties</span>
-><hr>
+> [!example]- `<span style="font-size: 14px">` Components Object
+> `<span style="font-size: 14px">`**Components Object** `<span style="font-size: 12px">`object
+> `<span style="font-size: 12px">`properties
 >
-><span style="font-size: 14px">**type**</span> <span style="font-size: 10px"> string  </span><span style="color: red; font-weight: 300; font-size: 14px">Required</span> 
-><span style="font-size: 14px">The type of the component.</span>
-></span>
-><span style="color: green; font-size: 12px; font-weight: 300">Supported component type include:</span>
-><span style="font-size: 12px; font-weight: 300">`header`, and `body`.</span>
+> <hr>
 >
-><hr>
+> `<span style="font-size: 14px">`**type** `<span style="font-size: 10px">` string `<span style="color: red; font-weight: 300; font-size: 14px">`Required
+> `<span style="font-size: 14px">`The type of the component.
 >
-><span style="font-size: 14px">**Parameters**</span> <span style="font-size: 10px">array </span><span style="color: red; font-weight: 300; font-size: 14px">Required</span> 
-><span style="font-size: 14px">A list of parameters objects with the content of the message</span>
+> `<span style="color: green; font-size: 12px; font-weight: 300">`Supported component type include:
+> `<span style="font-size: 12px; font-weight: 300">header`, and `body`.
 >
-><br>
+> <hr>
+>
+> `<span style="font-size: 14px">`**Parameters** `<span style="font-size: 10px">`array `<span style="color: red; font-weight: 300; font-size: 14px">`Required
+> `<span style="font-size: 14px">`A list of parameters objects with the content of the message
+>
+> <br>
 
->[!example]- <span style="font-size: 14px"> Parameters Object </span>
-><span style="font-size: 14px">**Parameters**</span> <span style="font-size: 12px">object </span>
-><span style="font-size: 12px">properties</span>
+> [!example]- `<span style="font-size: 14px">` Parameters Object
+> `<span style="font-size: 14px">`**Parameters** `<span style="font-size: 12px">`object
+> `<span style="font-size: 12px">`properties
 >
-><hr>
+> <hr>
 >
-><span style="font-size: 14px"> **type**</span> <span style="font-size: 10px">string </span><span style="color: red; font-weight: 300; font-size: 14px">Required</span> 
-><span style="font-size: 14px">The type of the parameters.</span>
-></span>
-><span style="color: green; font-size: 12px; font-weight: 300">Supported  `type` is `text`, `document`, `image`, and `video`.</span>
-></span>
-><span style="color: red; font-size: 12px; font-weight: 300">*Note: only component `type` `header` support `document`, `image`, and `video`.</span>
+> `<span style="font-size: 14px">` **type** `<span style="font-size: 10px">`string `<span style="color: red; font-weight: 300; font-size: 14px">`Required 
+> `<span style="font-size: 14px">`The type of the parameters.
 >
-><hr>
+> `<span style="color: green; font-size: 12px; font-weight: 300">`Supported  `type` is `text`, `document`, `image`, and `video`.
 >
-><span style="font-size: 14px"> **text**</span> <span style="font-size: 10px">string </span><span style="color: red; font-weight: 300; font-size: 14px">Optional</span>
-><span style="font-size: 14px">The message’s text. Character limit varies based on the following included component type.</span>
+> `<span style="color: red; font-size: 12px; font-weight: 300">`\*Note: only component `type` `header` support `document`, `image`, and `video`.
 >
-><span style="font-size: 14px">For the `header` component `type`:</span>
+> <hr>
 >
-><ul><li><span style="font-size: 14px">60 characters</span></li></ul>
+> `<span style="font-size: 14px">` **text** `<span style="font-size: 10px">`string `<span style="color: red; font-weight: 300; font-size: 14px">`Optional
+> `<span style="font-size: 14px">`The message’s text. Character limit varies based on the following included component type.
 >
-><span style="font-size: 14px">For the `body` component `type`:</span>
+> `<span style="font-size: 14px">`For the `header` component `type`:
 >
-><ul><li><span style="font-size: 14px">1024 characters if other component types are included</span></li><li><span style="font-size: 14px">36768 characters if `body` is the only component type included</span></li></ul>
+> <ul><li><span style="font-size: 14px">60 characters</span></li></ul>
 >
-><span style="color: red; font-size: 12px; font-weight: 300">Required when `type` is `text`.</span>
+> `<span style="font-size: 14px">`For the `body` component `type`:
 >
-><hr>
+> <ul><li><span style="font-size: 14px">1024 characters if other component types are included</span></li><li><span style="font-size: 14px">36768 characters if `body` is the only component type included</span></li></ul>
 >
-><span style="font-size: 14px"> **Media Object**</span> <span style="font-size: 10px">object </span><span style="color: red; font-weight: 300; font-size: 14px">Optional</span> 
-><span style="font-size: 14px">The type of the media, in this case `image`</span>
-></span>
-><span style="color: green; font-size: 12px; font-weight: 300">Supported media type include:</span>
-><span style="font-size: 12px; font-weight: 300">`image`, `document`, and  `video`.</span>
-></span>
-><span style="color: red; font-size: 12px; font-weight: 300">Required when `type` is `image`, `document`, or `video`.</span>
+> `<span style="color: red; font-size: 12px; font-weight: 300">`Required when `type` is `text`.
+>
+> <hr>
+>
+> `<span style="font-size: 14px">` **Media Object** `<span style="font-size: 10px">`object `<span style="color: red; font-weight: 300; font-size: 14px">`Optional 
+> `<span style="font-size: 14px">`The type of the media, in this case `image`
+>
+> `<span style="color: green; font-size: 12px; font-weight: 300">`Supported media type include:
+> `<span style="font-size: 12px; font-weight: 300">image`, `document`, and `video`.
+>
+> `<span style="color: red; font-size: 12px; font-weight: 300">`Required when `type` is `image`, `document`, or `video`.
 
->[!example]- <span style="font-size: 14px"> Media Object </span>
-><span style="font-size: 14px">**Media**</span> <span style="font-size: 12px">object </span>
-><span style="font-size: 12px">properties</span>
+> [!example]- `<span style="font-size: 14px">` Media Object
+> `<span style="font-size: 14px">`**Media** `<span style="font-size: 12px">`object
+> `<span style="font-size: 12px">`properties
 >
-><hr>
+> <hr>
 >
-><span style="font-size: 14px"> **id**</span> <span style="font-size: 10px">string </span><span style="color: red; font-weight: 300; font-size: 14px">Optional</span> 
-><span style="font-size: 14px">The media object ID. Do not use this field when parameter `type` is set to `text`.</span>
-></span>
-><span style="color: red; font-size: 12px; font-weight: 300">Required when parameter `type` is `document`, `image`, or `video` and you are not using `link`.</span>
+> `<span style="font-size: 14px">` **id** `<span style="font-size: 10px">`string `<span style="color: red; font-weight: 300; font-size: 14px">`Optional 
+> `<span style="font-size: 14px">`The media object ID. Do not use this field when parameter `type` is set to `text`.
 >
-><hr>
+> `<span style="color: red; font-size: 12px; font-weight: 300">`Required when parameter `type` is `document`, `image`, or `video` and you are not using `link`.
 >
-><span style="font-size: 14px"> **link**</span> <span style="font-size: 10px">string </span><span style="color: red; font-weight: 300; font-size: 14px">Optional</span> 
-><span style="font-size: 14px">The protocol and URL of the media to be sent. Use **only** with HTTP/HTTPS URLs.</span>
-></span>
-><span style="color: red; font-size: 12px; font-weight: 300">Required when parameter `type` is `document`, `image`, or `video` and you are not `file`.</span>
+> <hr>
 >
-><hr>
+> `<span style="font-size: 14px">` **link** `<span style="font-size: 10px">`string `<span style="color: red; font-weight: 300; font-size: 14px">`Optional 
+> `<span style="font-size: 14px">`The protocol and URL of the media to be sent. Use **only** with HTTP/HTTPS URLs.
 >
-><span style="font-size: 14px"> **caption**</span> <span style="font-size: 10px">string </span><span style="color: red; font-weight: 300; font-size: 14px">Optional</span> 
-><span style="font-size: 14px">The media asset caption</span>
+> `<span style="color: red; font-size: 12px; font-weight: 300">`Required when parameter `type` is `document`, `image`, or `video` and you are not `file`.
 >
-><hr>
+> <hr>
 >
-><span style="font-size: 14px"> **filename**</span> <span style="font-size: 10px">string </span><span style="color: red; font-weight: 300; font-size: 14px">Optional</span> 
-><span style="font-size: 14px">Describes the filename for the specific document. Use **only** with `document` media.</span>
+> `<span style="font-size: 14px">` **caption** `<span style="font-size: 10px">`string `<span style="color: red; font-weight: 300; font-size: 14px">`Optional 
+> `<span style="font-size: 14px">`The media asset caption
 >
-><hr>
+> <hr>
 >
-><span style="font-size: 14px"> **provider**</span> <span style="font-size: 10px">string </span><span style="color: red; font-weight: 300; font-size: 14px">Optional</span> 
-><span style="font-size: 14px">This path is optionally used with a `link` when the HTTP/HTTPS link is not directly accessible and requires additional configurations like a bearer token.</span>
+> `<span style="font-size: 14px">` **filename** `<span style="font-size: 10px">`string `<span style="color: red; font-weight: 300; font-size: 14px">`Optional 
+> `<span style="font-size: 14px">`Describes the filename for the specific document. Use **only** with `document` media.
 >
+> <hr>
+>
+> `<span style="font-size: 14px">` **provider** `<span style="font-size: 10px">`string `<span style="color: red; font-weight: 300; font-size: 14px">`Optional 
+> `<span style="font-size: 14px">`This path is optionally used with a `link` when the HTTP/HTTPS link is not directly accessible and requires additional configurations like a bearer token.
 
 <br>
 #### Example Requests
 <hr>
 
 Example curl command:
+
 ```
 curl --location 'https://whatsapp.replyherotech.com/whatsapp/template/send' \
 --header 'x-api-key: REPLYHERO_API_KEY' \
@@ -667,7 +664,7 @@ curl --location 'https://whatsapp.replyherotech.com/whatsapp/template/send' \
 }'
 ```
 
-Example Python - request command: 
+Example Python - request command:
 
 ```python
 import json
@@ -718,6 +715,7 @@ print(response.text)
 ```
 
 #### Response Example
+
 <hr>
 
 Example success response
@@ -835,32 +833,35 @@ Example success response
 POST https://whatsapp.replyherotech.com/whatsapp/uploads/media_upload
 ```
 
-To complete some of the API calls such as [[#Send WhatsApp Template]], you need to have a media ID. You can retrieve the media ID by uploading the media. 
+To complete some of the API calls such as [[#Send WhatsApp Template]], you need to have a media ID. You can retrieve the media ID by uploading the media.
 
 <hr>
 
 ### Upload Media
+
 Once you have successfully uploaded media files to the API, the media ID is included in the response to your call.
 
 #### Request Body \*(form-data)
----
-
-**orgId** <span style="font-size: 10px">string </span><span style="color: red; font-weight: 300; font-size: 14px">Required</span> 
-The organization IDs for the sender  
-  
-<span style="color: red; font-weight: 300; font-size: 12px">*Required from RH</span> 
 
 ---
 
-**type** <span style="font-size: 10px">string </span><span style="color: red; font-weight: 300; font-size: 14px">Required</span> 
+**orgId** `<span style="font-size: 10px">`string `<span style="color: red; font-weight: 300; font-size: 14px">`Required
+The organization IDs for the sender
+
+`<span style="color: red; font-weight: 300; font-size: 12px">`\*Required from RH
+
+---
+
+**type** `<span style="font-size: 10px">`string `<span style="color: red; font-weight: 300; font-size: 14px">`Required
 Type of media file being uploaded. See [[#SUPPORTED MEDIA TYPES]] for more information.
 
 ---
 
-**file** <span style="font-size: 10px">file </span><span style="color: red; font-weight: 300; font-size: 14px">Required</span> 
+**file** `<span style="font-size: 10px">`file `<span style="color: red; font-weight: 300; font-size: 14px">`Required
 The media file
 
 #### Example Requests
+
 <hr>
 
 Example curl command:
@@ -895,6 +896,7 @@ print(response.text)
 ```
 
 #### Response Example
+
 <hr>
 
 Example success response
@@ -929,4 +931,3 @@ Supported options for video are:
 
 - `video/mp4`
 - `video/3gp`
-
