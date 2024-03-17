@@ -16,7 +16,7 @@ X-API-KEY: REPLYHERO_API_KEY
 
 Example curl command:
 
-```curl
+```
 curl --location ‘https://whatsapp.replyherotech.com/whatsapp/messages/send' \
 	-H 'X-API-KEY: eUG3uKs0r6YoHmkRZVXe0nCEmJY19r'
 ```
@@ -26,7 +26,7 @@ curl --location ‘https://whatsapp.replyherotech.com/whatsapp/messages/send' \
 
 You can paste the command below into your terminal to run your first API request. Make sure to replace $REPLYHERO_API_KEY with your secret API key.
 
-```curl
+```
 curl --location 'https://whatsapp.replyherotech.com/whatsapp/messages/send' \
 --header 'x-api-key: eUG3uKs0r6YoHmkRZVXe0nCEmJY19r' \
 --header 'Content-Type: application/json' \
@@ -161,7 +161,7 @@ Programmatically send a text messages via Whatsapp.
 
 Example curl commnd:
 
-```curl
+```
 curl --location 'https://whatsapp.replyherotech.com/whatsapp/messages/send' \
 --header 'x-api-key: REPLYHERO_API_KEY' \
 --header 'Content-Type: application/json' \
@@ -181,7 +181,7 @@ curl --location 'https://whatsapp.replyherotech.com/whatsapp/messages/send' \
 
 Example Python - request command
 
-```
+```python
 import requests
 import json
 
