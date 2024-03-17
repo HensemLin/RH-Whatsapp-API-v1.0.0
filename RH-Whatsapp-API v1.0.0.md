@@ -119,7 +119,8 @@ Programmatically send a text messages via Whatsapp.
 **message** <span style="font-size: 10px;">object </span><span style="color: red; font-weight: 300; font-size: 14px;">Required</span> 
 <span style="font-size: 14px">An object of messages comprising the type and body of the message.</span>
 
-> [!NOTE] Text Message
+
+> [!NOTE]
 <span style="font-size: 14px;">**Text message**</span> <span style="font-size: 12px;">object </span>
 ><span style="font-size: 12px;">properties</span>
 ><hr>
@@ -136,6 +137,7 @@ Programmatically send a text messages via Whatsapp.
 >
 ><br>
 >
+
 
 >[!example]- <span style="font-size: 14px;"> Text Message </span>
 ><span style="font-size: 14px;">**Text message**</span> <span style="font-size: 12px;">object </span>
