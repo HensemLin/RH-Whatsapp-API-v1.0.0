@@ -105,6 +105,7 @@ POST https://whatsapp.replyherotech.com/whatsapp/messages/send
 Sends a message to a specified recipient via WhatsApp.
 
 <hr>
+
 ### Text Message
 
 Programmatically send a text messages via Whatsapp.
@@ -245,6 +246,7 @@ Programmatically send a text messages via Whatsapp.
 > > >```
 
 <hr>
+
 ### Media Message
 
 Programmatically send a media messages via WhatsApp.
@@ -487,6 +489,7 @@ POST https://whatsapp.replyherotech.com/whatsapp/template/send
 Sends a template message to a all the recipient that are grouped under the same organization via WhatsApp.
 
 <hr>
+
 ### Template Message
 
 Programmatically send a template message via WhatsApp. 
@@ -827,6 +830,7 @@ POST https://whatsapp.replyherotech.com/whatsapp/uploads/media_upload
 To complete some of the API calls such as [[#Send WhatsApp Template]], you need to have a media ID. You can retrieve the media ID but uploading the media. 
 
 <hr>
+
 ### Upload Media
 Once you have successfully uploaded media files to the API, the media ID is included in the response to your call.
 
