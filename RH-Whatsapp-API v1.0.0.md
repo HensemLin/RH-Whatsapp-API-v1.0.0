@@ -1,9 +1,26 @@
+
+# Table of Contents
+- [[#GETTING STARTED]]
+	- [[#Introduction]]
+	- [[#Authentication]]
+	- [[#Making Requests]]
+- [[#ENDPOINTS]]
+	- [[#Send WhatsApp Message]]
+		- [[#Text Message]]
+		- [[#Media Message]]
+	- [[#Send WhatsApp Template]]
+		- [[#Template Message]]
+	- [[#Get Media ID]]
+		- [[#Upload Media]]
+- [[#SUPPORTED MEDIA TYPES]]
+
 # GETTING STARTED
 ## Introduction
 
 Welcome to Reply Hero API documentation. You can interact with the API through HTTP requests from any language. 
 
 <hr>
+
 ## Authentication
 
 The ReplyHero API uses API keys for authentication. Visit our API Keys endpoint to create the API key you’ll use in your requests.
@@ -22,6 +39,7 @@ curl --location ‘https://whatsapp.replyherotech.com/whatsapp/messages/send' \
 ```
 
 <hr>
+
 ## Making Requests
 
 You can paste the command below into your terminal to run your first API request. Make sure to replace $REPLYHERO_API_KEY with your secret API key.
@@ -105,6 +123,7 @@ POST https://whatsapp.replyherotech.com/whatsapp/messages/send
 Sends a message to a specified recipient via WhatsApp.
 
 <hr>
+
 ### Text Message
 
 Programmatically send a text messages via Whatsapp.
@@ -241,6 +260,7 @@ Example success response
 ```
 
 <hr>
+
 ### Media Message
 
 Programmatically send a media messages via WhatsApp.
@@ -323,7 +343,7 @@ Programmatically send a media messages via WhatsApp.
 ><hr>
 >
 > <span style="font-size: 14px"> **type**</span> <span style="font-size: 10px">string </span><span style="color: red; font-weight: 300; font-size: 14px">Required</span> 
-><span style="font-size: 14px">Type of media file being uploaded. See [[#Supported Media Types]] for more information.</span>
+><span style="font-size: 14px">Type of media file being uploaded. See [[#SUPPORTED MEDIA TYPES]] for more information.</span>
 >
 ><hr>
 >
@@ -481,6 +501,7 @@ POST https://whatsapp.replyherotech.com/whatsapp/template/send
 Sends a template message to a all the recipient that are grouped under the same organization via WhatsApp.
 
 <hr>
+
 ### Template Message
 
 Programmatically send a template message via WhatsApp. 
@@ -605,6 +626,7 @@ A list of components objects comprising the parameters of the message.
 ><span style="font-size: 14px">This path is optionally used with a `link` when the HTTP/HTTPS link is not directly accessible and requires additional configurations like a bearer token.</span>
 >
 
+<br>
 #### Example Requests
 <hr>
 
@@ -813,9 +835,10 @@ Example success response
 POST https://whatsapp.replyherotech.com/whatsapp/uploads/media_upload
 ```
 
-To complete some of the API calls such as [[#Send WhatsApp Template]], you need to have a media ID. You can retrieve the media ID but uploading the media. 
+To complete some of the API calls such as [[#Send WhatsApp Template]], you need to have a media ID. You can retrieve the media ID by uploading the media. 
 
 <hr>
+
 ### Upload Media
 Once you have successfully uploaded media files to the API, the media ID is included in the response to your call.
 
@@ -830,7 +853,7 @@ The organization IDs for the sender
 ---
 
 **type** <span style="font-size: 10px">string </span><span style="color: red; font-weight: 300; font-size: 14px">Required</span> 
-Type of media file being uploaded. See [[#Supported Media Types]] for more information.
+Type of media file being uploaded. See [[#SUPPORTED MEDIA TYPES]] for more information.
 
 ---
 
@@ -857,8 +880,7 @@ import requests
 
 url = "https://whatsapp.replyherotech.com/whatsapp/uploads/media_upload"
 
-payload = {'orgId': 'ORG_ID',
-'type': 'image/jpg'}
+payload = {'orgId': 'ORG_ID','type': 'image/jpg'}
 files=[
  ('file',('example.jpeg',open('/path/to/image/example.jpeg','rb'),'image/jpeg'))
 ]
@@ -885,7 +907,7 @@ Example success response
 
 <hr>
 
-# Supported Media Types 
+# SUPPORTED MEDIA TYPES
 
 Supported options for images are:
 
